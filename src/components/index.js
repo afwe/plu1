@@ -1,6 +1,16 @@
-import tiking from './tik.vue'
-
-function tik(Vue){
-        Vue.component('tz',tiking)
-}
-export default tik ;
+import notify from './test.vue'
+export default {
+  install(Vue) {
+    const Notify=Vue.extend(notify);
+    const Profile=new Notify();
+    const notifyAction={
+      start(){
+        Profile.iswork=true;
+      },
+      stop(){
+        Profile.iswork=false;
+      }
+    }
+    Vue.prototype.$Notify=notifyAction;
+  }
+} 
